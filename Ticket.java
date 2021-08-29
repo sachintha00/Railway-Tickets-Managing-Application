@@ -17,4 +17,16 @@ public class Ticket {
     public int getDesignation(){
         return this.destination;
     }
+    public void setNoOfTickets(int noOfTickets){
+        this.noOfTickets = noOfTickets;
+    }
+    public int getNoOfTickets(){
+        return this.noOfTickets;
+    }
+    public void setPrice(double price){
+        this.price = price;
+    }
+    public double getPrice(){
+        return this.price;
+    }
 }
