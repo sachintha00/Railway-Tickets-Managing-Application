@@ -5,7 +5,7 @@ public class Employee {
         id = 0;
     } 
     public void seId(int id){
-        this.destination = id;
+        this.id = id;
     }
     public int getId(){
         return this.id;
