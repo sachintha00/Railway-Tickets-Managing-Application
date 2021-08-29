@@ -29,4 +29,10 @@ public class Ticket {
     public double getPrice(){
         return this.price;
     }
+    public void setTotalCost(double totalCost){
+        this.totalCost = totalCost;
+    }
+    public double getTotalCost(){
+        return this.totalCost;
+    }
 }
