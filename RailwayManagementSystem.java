@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class RailwayManagementSystem{
     public static void main(String[] args) {
@@ -7,6 +8,11 @@ public class RailwayManagementSystem{
     }
 
     public static void menuDesign(List<RailwayDataTable> list){
+
+        Employee emp = new Employee();
+        Passenger cstmr = new Passenger();
+        Scanner sacnner = new Scanner(System.in);
+
         List<RailwayDataTable> list2 =list;
 
         System.out.println("----------------------------------------------------------------------------");
@@ -21,6 +27,14 @@ public class RailwayManagementSystem{
             System.out.println(" "+data.getPrice());
         }
         System.out.println("----------------------------------------------------------------------------");
+        System.out.println("\n\n\n");
+
+        System.out.print("Please Enter Your Employee Number: ");
+        emp.seId(sacnner.nextInt());
+        System.out.print("Please Enter Customer NIC: ");
+        cstmr.setNic(sacnner.next());
+        System.out.println("\n\n"+emp.getId()+"\n"+cstmr.getNic());
+
     }
 
     public static void addRailwayData(){
