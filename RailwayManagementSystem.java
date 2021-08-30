@@ -3,12 +3,23 @@ import java.util.List;
 import java.util.Scanner;
 
 public class RailwayManagementSystem{
+
+    // ****************************
+    //     Main Menu
+    // ****************************
     public static void main(String[] args) {
         addRailwayData();
     }
 
+    // **********************************************************
+    //    Menu Design Function for the make an interface with
+    //          railway data table and user menu
+    // **********************************************************
     public static void menuDesign(List<RailwayDataTable> plist){
 
+        // ***********************
+        //     declare objects
+        // ***********************
         Employee emp = new Employee();
         Passenger cstmr = new Passenger();
         Ticket ticket = new Ticket();
@@ -19,7 +30,10 @@ public class RailwayManagementSystem{
 
         List<RailwayDataTable> list = plist;
 
-        System.out.println("\n\n\n\n");
+        // **********************************************************
+        //         Draw the table for the display railway data
+        // **********************************************************
+        System.out.println("\n\n");
         System.out.println("----------------------------------------------------------------------------");
         System.out.print("\tDestination\t\t");
         System.out.print("Destination ID\t\t");
@@ -29,11 +43,14 @@ public class RailwayManagementSystem{
         for(RailwayDataTable data : list){
             System.out.print("\t"+data.getDesignation()+"\t\t\t");
             System.out.print(data.getId()+"\t\t");
-            System.out.println(" "+data.getPrice());
+            System.out.println(" Rs."+data.getPrice());
         }
         System.out.println("----------------------------------------------------------------------------");
         System.out.println("\n\n\n");
 
+        // *************************************
+        //         Get inputs from user
+        // *************************************
         System.out.print("Please Enter Your Employee Number: ");
         emp.seId(sacnner.nextInt());
         System.out.print("Please Enter Customer NIC: ");
@@ -43,6 +60,9 @@ public class RailwayManagementSystem{
         System.out.print("Please Enter Number Of Tickets: ");
         ticket.setNoOfTickets(sacnner.nextInt());
 
+        // **********************************************************
+        //     check designation id with user input and set price
+        // **********************************************************
         for(RailwayDataTable data : list){
             if(ticket.getDesignation() == data.getId()){
                 ticket.setPrice(data.getPrice());
@@ -50,24 +70,39 @@ public class RailwayManagementSystem{
                 break;
             }
         }
+        // ***********************************************************
+        //  Call to calculation function for the calculate total cost
+        // ***********************************************************
         calculation(ticket);
+        // **************************************************************
+        //  call print Ticket function for the print a ticket with format
+        // **************************************************************
         printTicket(emp.getId(), cstmr.getNic(), "Galle", to, ticket.getTotalCost());
     }
 
+    // ******************************
+    //     Calculation Function
+    // ******************************
     public static void calculation(Ticket ticket){
         ticket.setTotalCost(ticket.getPrice()*ticket.getNoOfTickets());
     }
 
+    // ***************************************
+    //         Print Ticket Function
+    // ***************************************
     public static void printTicket(int issueId, String passengerNic, String from, String to, double totalCost){
         System.out.println("\n\n\n****** TICKET ******\n");
         System.out.println("Issue By: "+issueId);
         System.out.println("Passenger NIC: "+passengerNic);
         System.out.println("From: "+from);
         System.out.println("To: "+to);
-        System.out.println("Total: "+totalCost);
+        System.out.println("Total: Rs."+totalCost);
         System.out.println("\n\n");
     }
 
+    // **************************************************
+    //    add railway data to the railway data table
+    // **************************************************
     public static void addRailwayData(){
         List<RailwayDataTable> list = new ArrayList<>();
         list.add(new RailwayDataTable("Matara\t",1,100.00));
