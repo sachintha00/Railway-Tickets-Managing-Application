@@ -11,6 +11,8 @@ public class RailwayManagementSystem{
 
         Employee emp = new Employee();
         Passenger cstmr = new Passenger();
+        Ticket ticket = new Ticket();
+
         Scanner sacnner = new Scanner(System.in);
 
         List<RailwayDataTable> list2 =list;
@@ -33,7 +35,9 @@ public class RailwayManagementSystem{
         emp.seId(sacnner.nextInt());
         System.out.print("Please Enter Customer NIC: ");
         cstmr.setNic(sacnner.next());
-        System.out.println("\n\n"+emp.getId()+"\n"+cstmr.getNic());
+        System.out.print("Please Enter Designation ID: ");
+        ticket.setDesignation(sacnner.nextInt());
+        System.out.println("\n\n"+emp.getId()+"\n"+cstmr.getNic()+"\n"+ticket.getDesignation());
 
     }
 
