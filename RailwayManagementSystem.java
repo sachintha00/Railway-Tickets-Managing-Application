@@ -7,7 +7,7 @@ public class RailwayManagementSystem{
         addRailwayData();
     }
 
-    public static void menuDesign(List<RailwayDataTable> list){
+    public static void menuDesign(List<RailwayDataTable> plist){
 
         Employee emp = new Employee();
         Passenger cstmr = new Passenger();
@@ -15,7 +15,7 @@ public class RailwayManagementSystem{
 
         Scanner sacnner = new Scanner(System.in);
 
-        List<RailwayDataTable> list2 =list;
+        List<RailwayDataTable> list = plist;
 
         System.out.println("----------------------------------------------------------------------------");
         System.out.print("\tDestination\t\t");
@@ -23,7 +23,7 @@ public class RailwayManagementSystem{
         System.out.println("Ticket Price");
         System.out.println("----------------------------------------------------------------------------");
 
-        for(RailwayDataTable data : list2){
+        for(RailwayDataTable data : list){
             System.out.print("\t"+data.getDesignation()+"\t\t\t");
             System.out.print(data.getId()+"\t\t");
             System.out.println(" "+data.getPrice());
@@ -37,7 +37,13 @@ public class RailwayManagementSystem{
         cstmr.setNic(sacnner.next());
         System.out.print("Please Enter Designation ID: ");
         ticket.setDesignation(sacnner.nextInt());
-        System.out.println("\n\n"+emp.getId()+"\n"+cstmr.getNic()+"\n"+ticket.getDesignation());
+        System.out.print("Please Enter Number Of Tickets: ");
+        ticket.setNoOfTickets(sacnner.nextInt());
+        for(RailwayDataTable data : list){
+            if(ticket.getDesignation() == data.getId())
+                ticket.setPrice(data.getPrice());
+        }
+        System.out.println("\n\n"+emp.getId()+"\n"+cstmr.getNic()+"\n"+ticket.getDesignation()+"\n"+ticket.getNoOfTickets()+"\n"+ticket.getPrice());
 
     }
 
