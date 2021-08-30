@@ -3,21 +3,11 @@ import java.util.List;
 
 public class RailwayManagementSystem{
     public static void main(String[] args) {
-        List<RailwayDataTable> list = new ArrayList<>();
-        list.add(new RailwayDataTable("Matara",1,100.00));
-        list.add(new RailwayDataTable("Matara",2,200.00));
-        list.add(new RailwayDataTable("Matara",3,300.00));
-        dataTaleDesign(list);
+        addRailwayData();
     }
 
-    public static void dataTaleDesign(List<RailwayDataTable> list){
+    public static void menuDesign(List<RailwayDataTable> list){
         List<RailwayDataTable> list2 =list;
-        // List<RailwayDataTable> list = new ArrayList<>();
-        // list.add(new RailwayDataTable("Matara",1,100.00));
-        // list.add(new RailwayDataTable("Matara",2,200.00));
-        // list.add(new RailwayDataTable("Matara",3,300.00));
-
-
 
         System.out.println("----------------------------------------------------------------------------");
         System.out.print("\tDestination\t\t");
@@ -31,5 +21,14 @@ public class RailwayManagementSystem{
             System.out.println(" "+data.getPrice());
         }
         System.out.println("----------------------------------------------------------------------------");
+    }
+
+    public static void addRailwayData(){
+        List<RailwayDataTable> list = new ArrayList<>();
+        list.add(new RailwayDataTable("Matara",1,100.00));
+        list.add(new RailwayDataTable("Matara",2,200.00));
+        list.add(new RailwayDataTable("Matara",3,300.00));
+        list.add(new RailwayDataTable("Matara",4,400.00));
+        menuDesign(list);
     }
 }
