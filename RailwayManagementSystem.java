@@ -10,7 +10,7 @@ public class RailwayManagementSystem{
 
         for(RailwayDataTable data : list){
             if(data.getId() == 1){
-                System.out.println(data.getPrice());
+                System.out.println((double)data.getPrice()*2);
             }
         }
     }
