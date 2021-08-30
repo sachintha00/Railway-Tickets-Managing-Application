@@ -63,7 +63,8 @@ public class RailwayManagementSystem{
         System.out.println("Passenger NIC: "+passengerNic);
         System.out.println("From: "+from);
         System.out.println("To: "+to);
-        System.out.println("****** TICKET ******");
+        System.out.println("Total: "+totalCost);
+        System.out.println("\n\n");
     }
 
     public static void addRailwayData(){
