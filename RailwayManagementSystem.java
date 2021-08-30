@@ -16,7 +16,7 @@ public class RailwayManagementSystem{
         System.out.println("----------------------------------------------------------------------------");
 
         for(RailwayDataTable data : list2){
-            System.out.print("\t"+data.getDesignation()+"\t\t\t\t");
+            System.out.print("\t"+data.getDesignation()+"\t\t\t");
             System.out.print(data.getId()+"\t\t");
             System.out.println(" "+data.getPrice());
         }
@@ -25,10 +25,10 @@ public class RailwayManagementSystem{
 
     public static void addRailwayData(){
         List<RailwayDataTable> list = new ArrayList<>();
-        list.add(new RailwayDataTable("Matara",1,100.00));
-        list.add(new RailwayDataTable("Matara",2,200.00));
-        list.add(new RailwayDataTable("Matara",3,300.00));
-        list.add(new RailwayDataTable("Matara",4,400.00));
+        list.add(new RailwayDataTable("Matara\t",1,100.00));
+        list.add(new RailwayDataTable("Ambalangoda",2,150.00));
+        list.add(new RailwayDataTable("Kaluthara",3,200.00));
+        list.add(new RailwayDataTable("Colombo\t",4,300.00));
         menuDesign(list);
     }
 }
