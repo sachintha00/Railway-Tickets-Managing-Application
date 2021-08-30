@@ -19,6 +19,7 @@ public class RailwayManagementSystem{
 
         List<RailwayDataTable> list = plist;
 
+        System.out.println("\n\n\n\n");
         System.out.println("----------------------------------------------------------------------------");
         System.out.print("\tDestination\t\t");
         System.out.print("Destination ID\t\t");
@@ -45,7 +46,7 @@ public class RailwayManagementSystem{
         for(RailwayDataTable data : list){
             if(ticket.getDesignation() == data.getId()){
                 ticket.setPrice(data.getPrice());
-                to = "Matara";
+                to = data.getDesignation();
                 break;
             }
         }
