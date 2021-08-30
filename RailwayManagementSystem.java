@@ -13,6 +13,8 @@ public class RailwayManagementSystem{
         Passenger cstmr = new Passenger();
         Ticket ticket = new Ticket();
 
+        String to="";
+
         Scanner sacnner = new Scanner(System.in);
 
         List<RailwayDataTable> list = plist;
@@ -39,12 +41,29 @@ public class RailwayManagementSystem{
         ticket.setDesignation(sacnner.nextInt());
         System.out.print("Please Enter Number Of Tickets: ");
         ticket.setNoOfTickets(sacnner.nextInt());
-        for(RailwayDataTable data : list){
-            if(ticket.getDesignation() == data.getId())
-                ticket.setPrice(data.getPrice());
-        }
-        System.out.println("\n\n"+emp.getId()+"\n"+cstmr.getNic()+"\n"+ticket.getDesignation()+"\n"+ticket.getNoOfTickets()+"\n"+ticket.getPrice());
 
+        for(RailwayDataTable data : list){
+            if(ticket.getDesignation() == data.getId()){
+                ticket.setPrice(data.getPrice());
+                to = "Matara";
+                break;
+            }
+        }
+        calculation(ticket);
+        printTicket(emp.getId(), cstmr.getNic(), "Galle", to, ticket.getTotalCost());
+    }
+
+    public static void calculation(Ticket ticket){
+        ticket.setTotalCost(ticket.getPrice()*ticket.getNoOfTickets());
+    }
+
+    public static void printTicket(int issueId, String passengerNic, String from, String to, double totalCost){
+        System.out.println("\n\n\n****** TICKET ******\n");
+        System.out.println("Issue By: "+issueId);
+        System.out.println("Passenger NIC: "+passengerNic);
+        System.out.println("From: "+from);
+        System.out.println("To: "+to);
+        System.out.println("****** TICKET ******");
     }
 
     public static void addRailwayData(){
